@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-cursos-lista',
   templateUrl: './cursos-lista.component.html',
-  styleUrls: ['./cursos-lista.component.css']
+  styleUrls: ['./cursos-lista.component.css'],
+  preserveWhitespaces: true
 })
 export class CursosListaComponent implements OnInit {
 
