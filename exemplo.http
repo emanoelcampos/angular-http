@@ -17,7 +17,7 @@ content-type: application/json
 
 {
     "id": 2,
-    "nome": "Java OO"
+    "nome": "Java"
 }
 
 ###
