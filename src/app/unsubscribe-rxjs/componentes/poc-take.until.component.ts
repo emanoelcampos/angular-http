@@ -16,7 +16,7 @@ export class PocTakeUntilComponent implements OnInit, OnDestroy {
   nome = 'Componente com takeUntil';
   valor!: string;
 
-  unsub$ = new Subject();
+  unsub$ = new Subject<void>();
 
   constructor(private service: EnviarValorService) {}
 
@@ -30,7 +30,7 @@ export class PocTakeUntilComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.unsub$.next(Subject);
+    this.unsub$.next();
     this.unsub$.complete();
     console.log(`${this.nome} foi destruido`);
   }
