@@ -18,7 +18,7 @@ export class UnsubscribePocComponent implements OnInit {
   }
 
   emitirValor(valor: string) {
-    
+
   }
 
   destruirComponentes() {
