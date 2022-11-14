@@ -4,6 +4,7 @@ import { tap, delay } from 'rxjs/operators';
 
 import { Curso } from './cursos';
 import { environment } from '../../environments/environment';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -21,5 +22,17 @@ export class CursosService {
       delay(2000),
       tap(console.log)
     );
+  }
+
+  // create(curso: Curso) : Observable<Curso[]>{
+  //   return this.http.post(this.API, {cursos:curso})
+  // }
+
+  update() {
+
+  }
+
+  remove() {
+
   }
 }
