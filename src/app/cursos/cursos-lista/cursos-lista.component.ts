@@ -35,8 +35,21 @@ export class CursosListaComponent implements OnInit {
         console.log(error);
         this.error$.next(true);
         return EMPTY;
-      })
+      }),
     );
   }
+
+  /*this.cursoService.list().subscribe({
+    next: (v) => {
+      this.cursos$ = v;
+    },
+    error: (e) => {
+      catchError(error => {
+        this.error$.next(true);
+        return EMPTY;
+      })
+    },
+    complete: () => console.log('completo')
+  });*/
 
 }
