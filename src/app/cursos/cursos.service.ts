@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { tap, delay } from 'rxjs/operators';
+import { tap, delay, take } from 'rxjs/operators';
 
 import { Curso } from './cursos';
 import { environment } from '../../environments/environment';
@@ -24,9 +24,14 @@ export class CursosService {
     );
   }
 
-  // create(curso: Curso) : Observable<Curso[]>{
+  // create(curso: Curso): Observable<Curso[]>{
   //   return this.http.post(this.API, {cursos:curso})
   // }
+
+  create(curso: string) {
+    return this.http.post(this.API, curso)
+      .pipe(take(1));
+  }
 
   update() {
 

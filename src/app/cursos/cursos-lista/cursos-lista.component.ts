@@ -4,10 +4,6 @@ import { Component, OnInit } from '@angular/core';
 
 import { Curso } from '../cursos';
 import { CursosService } from '../cursos.service';
-import { BsModalService, BsModalRef, ModalOptions } from 'ngx-bootstrap/modal';
-import { AlertModalComponent } from 'src/app/shared/alert-modal/alert-modal.component';
-
-
 
 @Component({
   selector: 'app-cursos-lista',

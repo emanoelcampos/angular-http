@@ -7,6 +7,46 @@
     {
       "id": 2,
       "nome": "Java"
+    },
+    {
+      "nome": "Bootstrap 5",
+      "id": 3
+    },
+    {
+      "nome": "Spring",
+      "id": 4
+    },
+    {
+      "nome": "RxJs",
+      "id": 5
+    },
+    {
+      "nome": "JavaScript",
+      "id": 6
+    },
+    {
+      "nome": "TypeScript",
+      "id": 7
+    },
+    {
+      "nome": "Emanoel",
+      "id": 8
+    },
+    {
+      "nome": "HTML 5",
+      "id": 9
+    },
+    {
+      "nome": "CSS 3",
+      "id": 10
+    },
+    {
+      "nome": "MongoDB",
+      "id": 11
+    },
+    {
+      "nome": "Ana",
+      "id": 12
     }
   ]
 }
