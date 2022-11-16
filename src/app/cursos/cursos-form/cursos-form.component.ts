@@ -1,9 +1,10 @@
-import { Curso } from './../cursos';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { map, switchMap } from 'rxjs/operators';
 
+import { Curso } from './../cursos';
 import { CursosService } from '../cursos.service';
 import { AlertModalService } from 'src/app/shared/alert-modal.service';
 
@@ -20,7 +21,7 @@ export class CursosFormComponent implements OnInit {
     private formBuilder: FormBuilder,
     private cursosService: CursosService,
     private alertModal: AlertModalService,
-    //private location: Location,
+    private location: Location,
     private router: Router,
     private activatedRoute: ActivatedRoute
   ) {}
@@ -35,21 +36,23 @@ export class CursosFormComponent implements OnInit {
       });
     });*/
 
-    this.activatedRoute.params
+    /*this.activatedRoute.params
       .pipe(
         map((params: any) => params['id']),
         switchMap(id => this.cursosService.loadByID(id))
       )
-      .subscribe(curso => this.updateForm(curso));
+      .subscribe(curso => this.updateForm(curso));*/
 
       // concatMap -> ordem da requisição importa
       // mergeMap -> ordem não importa
       // exhaustMap -> casos de login
 
+    const curso = this.activatedRoute.snapshot.data['curso'];
+
     this.form = this.formBuilder.group({
-      id: [null],
+      id: [curso.id],
       nome: [
-        null,
+        curso.nome,
         [
           Validators.required,
           Validators.minLength(3),
@@ -59,12 +62,12 @@ export class CursosFormComponent implements OnInit {
     });
   }
 
-  updateForm(curso: any) {
+  /*updateForm(curso: Curso) {
     this.form.patchValue({
       id: curso.id,
-      nome: curso.nome,
+      nome: curso.nome
     });
-  }
+  }*/
 
   hasError(field: string) {
     return this.form.get(field)?.errors;
@@ -81,22 +84,24 @@ export class CursosFormComponent implements OnInit {
       console.log('submit');
       this.cursosService.create(this.form.value).subscribe({
         next: (success) => {
-          this.alertModal.showAlertSuccess('Curso criado com sucesso!');
-          //this.location.back();
+          this.alertModal.showAlertSuccess('Curso criado com sucesso!'),
+          this.router.navigate(['cursos']);
+          //this.location.back()
         },
         error: (error) =>
           this.alertModal.showAlertDanger(
             'Erro ao criar curso, tente novamente.'
           ),
-        complete: () => console.info('request complete'),
+        complete: () => console.info('request complete')
       });
+      //this.router.navigate(['cursos']);
     }
-    this.router.navigate(['cursos']);
   }
 
   onCancel() {
     this.submitted = false;
     this.form.reset();
+    this.router.navigate(['cursos']);
     //console.log('cancel')
   }
 }
