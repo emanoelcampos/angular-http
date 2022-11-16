@@ -13,6 +13,7 @@ export enum AlertTypes {
 })
 export class AlertModalService {
 
+
   constructor(private modalService: BsModalService) { }
 
   private showAlert(mensagem: string, type: AlertTypes, dissmissTimeout?: number) {
