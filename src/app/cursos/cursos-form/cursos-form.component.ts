@@ -21,7 +21,7 @@ export class CursosFormComponent implements OnInit {
     private formBuilder: FormBuilder,
     private cursosService: CursosService,
     private alertModal: AlertModalService,
-    private location: Location,
+    //private location: Location,
     private router: Router,
     private activatedRoute: ActivatedRoute
   ) {}
@@ -43,9 +43,9 @@ export class CursosFormComponent implements OnInit {
       )
       .subscribe(curso => this.updateForm(curso));*/
 
-      // concatMap -> ordem da requisição importa
-      // mergeMap -> ordem não importa
-      // exhaustMap -> casos de login
+    // concatMap -> ordem da requisição importa
+    // mergeMap -> ordem não importa
+    // exhaustMap -> casos de login
 
     const curso = this.activatedRoute.snapshot.data['curso'];
 
@@ -80,9 +80,44 @@ export class CursosFormComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     console.log(this.form.value);
+
     if (this.form.valid) {
       console.log('submit');
-      this.cursosService.create(this.form.value).subscribe({
+
+      let msgSuccess = 'Curso criado com sucesso!';
+      let msgError = 'Erro ao criar curso, tente novamente.';
+      if (this.form.value.id) {
+        msgSuccess = 'Curso atualizado com sucesso!';
+        msgError = 'Erro ao atualizar curso, tente novamente.';
+      }
+
+      this.cursosService.save(this.form.value).subscribe({
+        next: (success) => {
+          this.alertModal.showAlertSuccess(msgSuccess),
+            this.router.navigate(['cursos']);
+          //this.location.back()
+        },
+        error: (error) => this.alertModal.showAlertDanger(msgError),
+        complete: () => console.info('update complete'),
+      });
+
+      /*if (this.form.value.id) {
+        // update
+        this.cursosService.update(this.form.value).subscribe({
+          next: (success) => {
+            this.alertModal.showAlertSuccess('Curso atualizado com sucesso!'),
+            this.router.navigate(['cursos']);
+            //this.location.back()
+          },
+          error: (error) =>
+            this.alertModal.showAlertDanger(
+              'Erro ao atualizar curso, tente novamente.'
+            ),
+          complete: () => console.info('update complete')
+        });
+      } else {
+        // create
+        this.cursosService.create(this.form.value).subscribe({
         next: (success) => {
           this.alertModal.showAlertSuccess('Curso criado com sucesso!'),
           this.router.navigate(['cursos']);
@@ -95,6 +130,7 @@ export class CursosFormComponent implements OnInit {
         complete: () => console.info('request complete')
       });
       //this.router.navigate(['cursos']);
+      }*/
     }
   }
 

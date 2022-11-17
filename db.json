@@ -57,8 +57,8 @@
       "id": 14
     },
     {
-      "nome": "Teste página cursos",
-      "id": 15
+      "id": 15,
+      "nome": "Teste página cursos - atualizar"
     },
     {
       "nome": "router navigate",
@@ -81,8 +81,8 @@
       "nome": "vvvv"
     },
     {
-      "nome": "iii",
-      "id": 21
+      "id": 21,
+      "nome": "atualizando teste"
     },
     {
       "id": 22,
@@ -263,6 +263,26 @@
     {
       "id": 66,
       "nome": "jjjjjfjfff"
+    },
+    {
+      "id": 67,
+      "nome": "jjjjjjjjjjjjjjjjjjjjjjjjjjjj"
+    },
+    {
+      "id": 68,
+      "nome": "fdfcgh"
+    },
+    {
+      "id": 69,
+      "nome": "criando curso teste"
+    },
+    {
+      "id": 70,
+      "nome": "teste criando"
+    },
+    {
+      "id": 71,
+      "nome": "curso atualizar teste/id"
     }
   ]
 }
