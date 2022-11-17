@@ -16,7 +16,6 @@ export class ConfirmModalComponent implements OnInit {
 
   confirmResult!: Subject<boolean>;
 
-
   constructor(public bsModalRef: BsModalRef) { }
 
   ngOnInit() {

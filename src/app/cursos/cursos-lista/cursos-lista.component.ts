@@ -3,7 +3,7 @@ import { catchError, EMPTY, Observable, Subject, take, switchMap } from 'rxjs';
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { Curso } from '../cursos';
-import { CursosService } from '../cursos.service';
+import { Cursos2Service } from '../cursos2.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
@@ -27,7 +27,7 @@ export class CursosListaComponent implements OnInit {
   error$ = new Subject<boolean>();
 
   constructor(
-    private cursosService: CursosService,
+    private cursosService: Cursos2Service,
     //private modalService: BsModalService
     private alertModalService: AlertModalService,
     private router: Router,

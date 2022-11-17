@@ -5,7 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { map, switchMap } from 'rxjs/operators';
 
 import { Curso } from './../cursos';
-import { CursosService } from '../cursos.service';
+import { Cursos2Service } from '../cursos2.service';
 import { AlertModalService } from 'src/app/shared/alert-modal.service';
 
 @Component({
@@ -19,7 +19,7 @@ export class CursosFormComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private cursosService: CursosService,
+    private cursosService: Cursos2Service,
     private alertModal: AlertModalService,
     //private location: Location,
     private router: Router,
